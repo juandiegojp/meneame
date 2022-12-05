@@ -27,7 +27,7 @@ function obtener_parametro($par, $array)
 
 function volver()
 {
-    header('Location: /public/index.php');
+    header('Location: /index.php');
 }
 
 function volver_admin()

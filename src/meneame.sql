@@ -23,4 +23,4 @@ INSERT INTO usuarios (usuario, password)
 
 INSERT INTO noticias (titular, cantidad, noticias_usuarios)
     VALUES ('Pepito aprueba php',0, 2),
-           ('Pepito tiene depresión',10, 2);
+           ('What If... haha just kidding... unless...',10, 2);
