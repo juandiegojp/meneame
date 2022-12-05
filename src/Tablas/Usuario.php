@@ -3,7 +3,7 @@ namespace App\Tablas;
 use PDO;
 class Usuario
 {
-    private $id;
+    public $id;
     public $usuario;
 
     public function __construct(array $campos)
