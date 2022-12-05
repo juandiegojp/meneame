@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS noticias CASCADE;
 CREATE TABLE noticias (
     id       bigserial    PRIMARY KEY,
     titular  varchar(255) NOT NULL,
-    cantidad  numeric(9) NOT NULL,
+    cantidad  numeric(9) NOT NULL DEFAULT 0,
     noticias_usuarios bigserial NOT NULL REFERENCES usuarios (id)
 );
 
@@ -22,5 +22,9 @@ INSERT INTO usuarios (usuario, password)
            ('pepe', crypt('pepe', gen_salt('bf', 10)));
 
 INSERT INTO noticias (titular, cantidad, noticias_usuarios)
-    VALUES ('Pepito aprueba php',0, 2),
+    VALUES ('Pepito aprueba php', DEFAULT, 2),
            ('What If... haha just kidding... unless...',10, 2);
+
+INSERT INTO noticias (titular, noticias_usuarios)
+    VALUES ('Pepito se está pasando de listo', 1);
+

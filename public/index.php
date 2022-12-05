@@ -15,6 +15,7 @@
     <?php
     require '../vendor/autoload.php';
     require '../src/_login.php';
+    require '../src/_insertar.php';
     $pdo = conectar();
     $sent = $pdo->query('SELECT * FROM usuarios u JOIN noticias n ON n.noticias_usuarios = u.id ORDER BY n.cantidad DESC');
     ?>
@@ -54,7 +55,7 @@
                 <div class="flex items-center">
                     <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
                         <li>
-                            <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Publicar nueva noticia</a>
+                            <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page" data-modal-toggle="insertar">Publicar nueva noticia</a>
                         </li>
                         <li>
                             <a href="#" class="text-gray-900 dark:text-white hover:underline">Gestionar noticias</a>
