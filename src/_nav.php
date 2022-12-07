@@ -1,8 +1,8 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
         <a href="/index.php" class="flex items-center">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            <img src="https://cdn.worldvectorlogo.com/logos/clown-1.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">ClownFactory</span>
         </a>
         <div class="flex items-center">
             <!-- Nombre del ususario -->

@@ -15,13 +15,20 @@ CREATE TABLE noticias (
     noticias_usuarios bigserial NOT NULL REFERENCES usuarios (id)
 );
 
+DROP TABLE IF EXISTS favoritos CASCADE;
+
+CREATE TABLE favoritos (
+    id_usuarios bigserial NOT NULL REFERENCES usuarios (id),
+    id_noticias bigserial NOT NULL REFERENCES noticias (id)
+);
+
 -- carga incial
 INSERT INTO usuarios (usuario, PASSWORD)
-    VALUES ('admin', crypt('admin', gen_salt('bf', 10))), ('pepe', crypt('pepe', gen_salt('bf', 10))), ('juan diego', crypt('juan diego', gen_salt('bf', 10)));
+    VALUES ('admin', crypt('admin', gen_salt('bf', 10))), 
+    ('pepe', crypt('pepe', gen_salt('bf', 10))), 
+    ('juan diego', crypt('juan diego', gen_salt('bf', 10)));
 
 INSERT INTO noticias (titular, cantidad, noticias_usuarios)
-    VALUES ('Pepito aprueba php', DEFAULT, 2), ('What If... haha just kidding... unless...', 10, 2);
-
-INSERT INTO noticias (titular, noticias_usuarios)
-    VALUES ('Pepito se está pasando de listo', 3), ('Rata inmunda, animal rastrero', 3);
-
+    VALUES ('Pepito aprueba php', DEFAULT, 2), 
+    ('Rata inmunda, animal rastrero', DEFAULT, 3),
+    ('Pepito se está pasando de listo', DEFAULT, 1); 
