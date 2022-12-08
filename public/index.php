@@ -17,6 +17,7 @@
     require '../src/_nav.php';
     require '../src/_login.php';
     require '../src/_insertar.php';
+    require '../src/_alerts.php';
 
     $pdo = conectar();
     $sent = $pdo->query('SELECT * FROM usuarios u JOIN noticias n ON n.noticias_usuarios = u.id ORDER BY n.id DESC');
@@ -31,6 +32,9 @@
                         </li>
                         <li>
                             <a href="/dashboard.php" class="text-gray-900 dark:text-white hover:underline">Gestionar noticias</a>
+                        </li>
+                        <li>
+                            <a href="/favoritos.php" class="text-gray-900 dark:text-white hover:underline">Favoritos</a>
                         </li>
                     </ul>
                 </div>
