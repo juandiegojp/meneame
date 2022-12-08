@@ -19,6 +19,8 @@
     require '../src/_insertar.php';
     require '../src/_alerts.php';
 
+    use Carbon\Carbon;
+
     $pdo = conectar();
     $sent = $pdo->query('SELECT * FROM usuarios u JOIN noticias n ON n.noticias_usuarios = u.id ORDER BY n.id DESC');
     ?>
@@ -44,12 +46,16 @@
     
     <div class="flex flex-col space-y-4 justify-center items-center">
         <?php foreach ($sent as $filas) : ?>
+            <?php $fecha = Carbon::parse($filas['created_at']); ?>
             <div class="w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <p>
+                <div class="flex justify-between">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <?= $filas['titular'] ?>
                 </h5>
-                </p>
+                <a href="#" class="my-4 text-lg text-gray-500 hover:underline">
+                    <?= $fecha->toFormattedDateString(); ?>
+                </a>
+                </div>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     <?= $filas['usuario'] ?>
                 </p>

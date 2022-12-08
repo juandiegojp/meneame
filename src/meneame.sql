@@ -12,6 +12,7 @@ CREATE TABLE noticias (
     id bigserial PRIMARY KEY,
     titular varchar(255) NOT NULL,
     cantidad numeric(9) NOT NULL DEFAULT 0,
+    created_at timestamp  NOT NULL DEFAULT localtimestamp(0),
     noticias_usuarios bigserial NOT NULL REFERENCES usuarios (id)
 );
 
