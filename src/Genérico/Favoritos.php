@@ -27,4 +27,17 @@ class Favoritos
         }
         return true;
     }
+
+    public static function existe(?PDO $pdo = null) : bool
+    {
+        $pdo = $pdo ?? conectar();
+
+        $sent = $pdo->query('SELECT * FROM favoritos');
+        $fila = $sent->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila === false) {
+            return false;
+        }
+        return true;
+    }
 }

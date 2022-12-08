@@ -43,18 +43,18 @@
             </div>
         </nav>
     <?php endif; ?>
-    
-    <div class="flex flex-col space-y-4 justify-center items-center">
+
+    <div class="flex flex-col space-y-4 justify-center items-center mt-2">
         <?php foreach ($sent as $filas) : ?>
             <?php $fecha = Carbon::parse($filas['created_at']); ?>
             <div class="w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    <?= $filas['titular'] ?>
-                </h5>
-                <a href="#" class="my-4 text-lg text-gray-500 hover:underline">
-                    <?= $fecha->toFormattedDateString(); ?>
-                </a>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <?= $filas['titular'] ?>
+                    </h5>
+                    <a href="#" class="my-4 text-lg text-gray-500 hover:underline">
+                        <?= $fecha->toFormattedDateString(); ?>
+                    </a>
                 </div>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     <?= $filas['usuario'] ?>
@@ -79,11 +79,8 @@
                     <p><?= $filas['cantidad'] ?></p>
                 </div>
 
-                <a href="add_fav.php?id=<?= $filas['id'] ?>&usuario=<?= $filas['noticias_usuarios'] ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Añadir a favoritos
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
+                <a href="add_fav.php?id=<?= $filas['id'] ?>&usuario=<?= $filas['noticias_usuarios'] ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
+                    &hearts;
                 </a>
             </div>
         <?php endforeach; ?>

@@ -44,7 +44,20 @@
             </li>
         </ol>
     </nav>
-
+    <?php if (!\App\Genérico\Favoritos::existe()) : ?>
+        <div class="mt-4 mx-4">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <mark class="px-2 text-white bg-yellow-400 rounded dark:bg-yellow-500">Upps...</mark>
+                aún no has añadido nada a
+                <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+                    favoritos.
+                </span>
+            </h1>
+            <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+                Añade tu primera noticia <a href="/index.php" class="hover:underline">ahora</a>
+            </p>
+        </div>
+    <?php endif; ?>
     <div class="flex flex-col space-y-4 justify-center items-center">
         <?php foreach ($sent as $filas) : ?>
             <div class="w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">

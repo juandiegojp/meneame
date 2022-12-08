@@ -6,7 +6,7 @@ require '../vendor/autoload.php';
 $noticia = obtener_get('id');
 $usuario = obtener_get('usuario');
 
-var_dump($noticia, $usuario);
+// Si la noticia ya está añadida, muestra mensaje de error y vuelve a home.
 if (App\Genérico\Favoritos::comprobar($noticia)) {
     $_SESSION['error'] = 'Error: No puedes guardar dos veces la misma noticia.';
     return volver();
