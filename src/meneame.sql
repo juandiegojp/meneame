@@ -29,7 +29,7 @@ INSERT INTO usuarios (usuario, PASSWORD)
     ('pepe', crypt('pepe', gen_salt('bf', 10))), 
     ('juan diego', crypt('juan diego', gen_salt('bf', 10)));
 
-INSERT INTO noticias (titular, cantidad, noticias_usuarios)
-    VALUES ('Pepito aprueba php', DEFAULT, 2), 
-    ('Rata inmunda, animal rastrero', DEFAULT, 3),
-    ('Pepito se está pasando de listo', DEFAULT, 1); 
+INSERT INTO noticias (titular, cantidad, created_at, noticias_usuarios)
+    VALUES ('Its Britney, b*tch', DEFAULT, '2007-7-7 23:26:11', 2), 
+    ('Rata inmunda, animal rastrero', DEFAULT,'2017-10-10 23:26:11', 3),
+    ('in the end it doesnt even matter', DEFAULT,'2012-12-12 12:12:12', 1); 
