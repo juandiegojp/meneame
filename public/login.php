@@ -8,6 +8,6 @@ $password = obtener_post('password');
 if (isset($login, $password)) {
     if ($usuario = \App\Tablas\Usuario::comprobar($login, $password)) {
         $_SESSION['login'] = serialize($usuario);
-        return volver();
+        return $usuario->es_admin() ? volver_admin() : volver();
     }
 }
