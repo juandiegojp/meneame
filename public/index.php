@@ -49,17 +49,19 @@
             <?php $fecha = Carbon::parse($filas['created_at']); ?>
             <div class="w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <?= $filas['titular'] ?>
-                    </h5>
+                    <div class="flex justify-center items-center">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <?= $filas['titular'] ?>
+                        </h5>
+                        <em class="font-normal text-gray-700 dark:text-gray-400 ml-2">
+                            <?= $filas['usuario'] ?>
+                        </em>
+                    </div>
                     <a href="#" class="my-4 text-lg text-gray-500 hover:underline">
                         <?= $fecha->toFormattedDateString(); ?>
                     </a>
                 </div>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    <?= $filas['usuario'] ?>
-                </p>
-                <div class="flex space-x-4 justify-start mb-2">
+                <div class="flex justify-between">
                     <a href="/incrementarLikes.php?id=<?= $filas['id'] ?>&cantidad=<?= $filas['cantidad'] ?>">
                         <button class="inline-flex items-center px-2 py-1.5 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
                             <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -68,6 +70,7 @@
                             <span class="sr-only">Arrow key up</span>
                         </button>
                     </a>
+                    <p><?= $filas['cantidad'] ?></p>
                     <a href="/decrementarLikes.php?id=<?= $filas['id'] ?>&cantidad=<?= $filas['cantidad'] ?>">
                         <button class="inline-flex items-center px-2 py-1.5 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">
                             <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -76,12 +79,17 @@
                             <span class="sr-only">Arrow key down</span>
                         </button>
                     </a>
-                    <p><?= $filas['cantidad'] ?></p>
+                    <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg aria-hidden="true" class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                        </svg>
+                        Comprar
+                    </a>
+                    <a href="add_fav.php?id=<?= $filas['id'] ?>&usuario=<?= $filas['noticias_usuarios'] ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
+                        &hearts;
+                    </a>
                 </div>
 
-                <a href="add_fav.php?id=<?= $filas['id'] ?>&usuario=<?= $filas['noticias_usuarios'] ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-pink-700 rounded-lg hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
-                    &hearts;
-                </a>
             </div>
         <?php endforeach; ?>
     </div>
