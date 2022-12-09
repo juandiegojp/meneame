@@ -70,11 +70,14 @@ session_start() ?>
                     <th scope="col" class="py-3 px-6">
                         Titular
                     </th>
-                    <th scope="col" class="py-3 px-6 col-span-2 text-center">
+                    <th scope="col" class="py-3 px-6">
                         Autor
                     </th>
-                    <th scope="col" class="py-3 px-6 col-span-2 text-center">
+                    <th scope="col" class="py-3 px-6">
                         Publicado en
+                    </th>
+                    <th scope="col" class="py-3 px-6 col-span-2 text-center">
+                        Acciones
                     </th>
                 </tr>
             </thead>
@@ -94,7 +97,7 @@ session_start() ?>
                             <?= Carbon::parse($fila['created_at'])->toDateString() ?>
                         </td>
                         <td class="py-4 px-6">
-                            <form action="/admin/editar.php" method="POST" class="inline">
+                            <form action="/admin/editarNoticia.php" method="POST" class="inline">
                                 <input type="hidden" name="id" value="<?= $fila['id'] ?>">
                                 <button type="submit" onclick="cambiarModificar(event, <?= $fila['id'] ?>)" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" data-modal-toggle="editar">Editar</button>
                             </form>
@@ -151,7 +154,7 @@ session_start() ?>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">¿Seguro que desea editar este artículo?</h3>
-                    <form action="/editar.php" method="POST">
+                    <form action="/admin/editarNoticia.php" method="POST">
                         <input id="modificar" type="hidden" name="id">
                         <input type="text" name="titular" id="titular" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                         <button data-modal-toggle="editar" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">

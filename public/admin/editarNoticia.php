@@ -14,4 +14,4 @@ $sent->execute([
     ':titular' => $titular
 ]);
 
-return volver_admin();
+header('Location: /admin/noticias.php');
