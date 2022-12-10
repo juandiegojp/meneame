@@ -44,7 +44,7 @@
             </li>
         </ol>
     </nav>
-    <?php if (!\App\Genérico\Favoritos::existe()) : ?>
+    <?php if (!\App\Generico\Favoritos::existe()) : ?>
         <div class="mt-4 mx-4">
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 <mark class="px-2 text-white bg-yellow-400 rounded dark:bg-yellow-500">Upps...</mark>

@@ -1,8 +1,11 @@
 <?php
 
-class Noticias
+namespace App\Tablas;
+use PDO;
+class Noticias extends Modelo
 {
-    private $id;
+    protected static string $tabla = 'noticias';
+    public $id;
     private $titular;
     private $noticia_usuario;
 
@@ -12,6 +15,12 @@ class Noticias
         $this->titular = $campos['titular'];
         $this->noticia_usuario = $campos['noticia_usuario'];
     }
+
+    public static function existe(int $id, ?PDO $pdo = null): bool
+    {
+        return static::existe($id, $pdo) !== null;
+    }
+
     public function getTitular()
     {
         return $this->titular;

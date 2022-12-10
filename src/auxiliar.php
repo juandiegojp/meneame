@@ -10,6 +10,15 @@ function hh($x)
     return htmlspecialchars($x ?? '', ENT_QUOTES | ENT_SUBSTITUTE);
 }
 
+function carrito()
+{
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = serialize(new \App\Generico\Carrito());
+    }
+
+    return $_SESSION['carrito'];
+}
+
 function obtener_get($par)
 {
     return obtener_parametro($par, $_GET);

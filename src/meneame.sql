@@ -23,6 +23,23 @@ CREATE TABLE favoritos (
     id_noticias bigserial NOT NULL REFERENCES noticias (id)
 );
 
+DROP TABLE IF EXISTS facturas CASCADE;
+
+CREATE TABLE facturas (
+    id         bigserial  PRIMARY KEY,
+    created_at timestamp  NOT NULL DEFAULT localtimestamp(0),
+    usuario_id bigint NOT NULL REFERENCES usuarios (id)
+);
+
+DROP TABLE IF EXISTS noticias_facturas CASCADE;
+
+CREATE TABLE noticias_facturas (
+    noticias_id bigint NOT NULL REFERENCES noticias (id),
+    factura_id  bigint NOT NULL REFERENCES facturas (id),
+    cantidad    int    NOT NULL,
+    PRIMARY KEY (noticias_id, factura_id)
+);
+
 -- carga incial
 INSERT INTO usuarios (usuario, PASSWORD)
     VALUES ('admin', crypt('admin', gen_salt('bf', 10))), 

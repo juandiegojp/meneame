@@ -1,5 +1,5 @@
 <?php
-namespace App\Genérico;
+namespace App\Generico;
 use PDO;
 class Favoritos
 {

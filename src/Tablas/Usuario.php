@@ -1,8 +1,9 @@
 <?php
 namespace App\Tablas;
 use PDO;
-class Usuario
+class Usuario extends Modelo
 {
+    protected static string $tabla = 'usuarios';
     public $id;
     public $usuario;
 
